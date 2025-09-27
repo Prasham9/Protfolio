@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CA Prasham Lotia – Professional Accounting & Taxation Services</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      color: #333;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    
+    header {
+      background: rgba(30, 60, 114, 0.95);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      animation: shimmer 3s infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    
+    header h1 {
+      font-size: 2.8rem; 
+      margin-bottom: .8rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1200px; 
+      margin: auto; 
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.4s; }
+    .section:nth-child(4) { animation-delay: 0.6s; }
+    .section:nth-child(5) { animation-delay: 0.8s; }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .section h2 {
+      color: #1e3c72;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+      font-weight: 600;
+    }
+    
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    .about, .services, .qualifications, .expertise, .contact {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .about:hover, .services:hover, .qualifications:hover, .expertise:hover, .contact:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    
+    .service-category {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .service-category:hover {
+      transform: scale(1.02) rotate(1deg);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    .service-category h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    ul {list-style: none;}
+    ul li {
+      margin: .8rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .service-category ul li::before {
+      color: #fff;
+    }
+    
+    ul li:hover {
+      transform: translateX(5px);
+      color: #667eea;
+    }
+
+    .expertise-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .stat-item {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .qualifications ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .qualifications li {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 1rem;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s ease;
+    }
+    
+    .qualifications li:hover {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      transform: translateX(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(30, 60, 114, 0.95);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .contact-icon {
+      font-size: 2rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    a {color: #667eea; text-decoration: none; transition: all 0.3s ease;}
+    a:hover {color: #764ba2;}
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {font-size: 2.2rem;}
+      header p {font-size: 1.1rem;}
+      .container {padding: 1rem;}
+      .about, .services, .qualifications, .expertise, .contact {padding: 1.5rem;}
+      .services-grid {grid-template-columns: 1fr;}
+      .expertise-stats {grid-template-columns: repeat(2, 1fr);}
+    }
+    
+    @media (max-width: 480px) {
+      .expertise-stats {grid-template-columns: 1fr;}
+      .qualifications ul {grid-template-columns: 1fr;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CA Prasham Lotia</h1>
+    <p>Professional Accounting & Taxation Services</p>
+  </header>
+
+  <div class="container">
+    <section class="about section">
+      <h2>About Me</h2>
+      <p>
+        I am a dedicated Chartered Accountant and Taxation professional based in Rajkot, Gujarat. 
+        With extensive experience in financial management, tax compliance, and business advisory services, 
+        I specialize in providing comprehensive accounting solutions to individuals and businesses. 
+        My commitment to accuracy, compliance, and client satisfaction ensures that your financial 
+        matters are handled with utmost professionalism and expertise.
+      </p>
+    </section>
+
+    <section class="qualifications section">
+      <h2>Qualifications & Certifications</h2>
+      <ul>
+        <li>🎓 Chartered Accountant (CA) - ICAI Certified</li>
+        <li>📜 Bachelor of Commerce (B.Com)</li>
+        <li>💼 GST Practitioner Certification</li>
+        <li>📊 Advanced Excel & Accounting Software Expert</li>
+        <li>🏛️ Company Law & Corporate Compliance Specialist</li>
+        <li>📈 Financial Analysis & Tax Planning Expert</li>
+      </ul>
+    </section>
+
+    <section class="services section">
+      <h2>Professional Services</h2>
+      <div class="services-grid">
+        <div class="service-category">
+          <h3>📊 Accounting Services</h3>
+          <ul>
+            <li>Books of Accounts Maintenance</li>
+            <li>Financial Statement Preparation</li>
+            <li>Management Reporting</li>
+            <li>Cash Flow Management</li>
+            <li>Budgeting & Forecasting</li>
+          </ul>
+        </div>
+        
+        <div class="service-category">
+          <h3>📋 Taxation Services</h3>
+          <ul>
+            <li>Income Tax Planning & Filing</li>
+            <li>GST Registration & Returns</li>
+            <li>TDS Compliance & Returns</li>
+            <li>Tax Advisory & Consultation</li>
+            <li>Appeals & Assessments</li>
+          </ul>
+        </div>
+        
+        <div class="service-category">
+          <h3>🏢 Corporate Services</h3>
+          <ul>
+            <li>Company Registration & Incorporation</li>
+            <li>Partnership & LLP Formation</li>
+            <li>ROC Compliance</li>
+            <li>Board Meetings & Resolutions</li>
+            <li>Annual Filing & Returns</li>
+          </ul>
+        </div>
+        
+        <div class="service-category">
+          <h3>🔍 </h3>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="expertise section">
+      <h2>Why Choose Me</h2>
+      <div class="expertise-stats">
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <div>Years of Experience</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">200+</span>
+          <div>Happy Clients</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <div>Support Available</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <div>Accuracy Guaranteed</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section">
+      <h2>Get In Touch</h2>
+      <p>Ready to streamline your finances? Contact me for professional accounting and taxation services.</p>
+      <div class="contact-info">
+        <a href="mailto:ashwinklotia@yahoo.com" class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>Email</strong><br>
+            ashwinklotia@yahoo.com
+          </div>
+        </a>
+        <a href="tel:+916358733231" class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <strong>Phone</strong><br>
+            +91 63587 33231
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Location</strong><br>
+            Rajkot, Gujarat, India
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 CA Prasham Lotia – Professional Accounting & Taxation Services. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Add smooth scrolling for better UX
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add loading animation
+      const sections = document.querySelectorAll('.section');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+      
+      // Add click animation for service categories
+      const serviceCategories = document.querySelectorAll('.service-category');
+      serviceCategories.forEach(category => {
+        category.addEventListener('click', function() {
+          this.style.transform = 'scale(0.98)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1.02) rotate(1deg)';
+          }, 150);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
